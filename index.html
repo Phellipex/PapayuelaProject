@@ -5,19 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Andrés Felipe Quintero" >
-        <title>HERAMIENTAS DE CONTEO</title>
+        <title>THE PAPAYUELA PROJECT</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-		<!-- TODO: add custom css link. -->
+        <link href="css/additional-styles.css" rel="stylesheet">
+
     </head>
 
     <body>
 
         <header class="container">
-            <div class="row row-header">
+            <div class="row row-header papayuela-color">
                 <div class="col-xs-9 col-sm-10">
-                    <div class="jumbotron">
-                        <h1>HERAMIENTAS DE CONTEO</h1>
+                    <div class="jumbotron papayuela-color">
+                        <h1>THE PAPAYUELA PROJECT</h1>
                         <p>Un conjunto de herramientas simples para hacer cálculos relevantes para un traductor.</p>
                     </div>
                 </div>
@@ -33,8 +34,8 @@
             <form class="form-horizontal">
 
                 <div class="row">
-                    <div id="price_module_error" class="col-xs-12 col-sm-6">ERROR MESSAGE APPEARS HERE VIA JS</div>
-                    <div id="segment_module_error" class="col-xs-12 col-sm-6">ERROR MESSAGE APPEARS HERE VIA JS</div>
+                    <div id="price_module_error" class="col-xs-12 col-sm-6 error"></div>
+                    <div id="segment_module_error" class="col-xs-12 col-sm-6 error"></div>
                 </div>
 
 				<!-- TODO: add glyphicons to the text inside the legend tags. Glyphicons should represent the action described in the text. -->
@@ -43,44 +44,44 @@
 				<!-- TODO: add an explanatorytooltip to each question mark glyphicon. -->
 				<!-- TODO: add the papayuela color to the buttons. -->
 				<!-- TODO: change the tooltip default black color to a color that matches the overall color-scheme. -->
-				<div class="form-group">
+                <div class="form-group">
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
-                            <legend class="label"> COTIZAR TRADUCCIÓN</legend>
+                            <legend class="label papayuela-color module-title"> COTIZAR TRADUCCIÓN</legend>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="wordcount">Cantidad de palabras</label>
                                 </div>
-                                <input id="wordcount" class="form-control"  type="number" min="0"  onfocus=""/>
+                                <input id="wordcount" class="form-control"  type="number" min="0"  onfocus="clearPlaceholder('price_module_error')"/>
                             </div>  
                             <br/>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="rate">Valor de cada palabra</label>
                                 </div>
-                                <input id="rate" class="form-control" type="number" min="0" onfocus=""/>
+                                <input id="rate" class="form-control" type="number" min="0" onfocus="clearPlaceholder('price_module_error')"/>
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón calcula el valor de una traducción. El segundo limpia los campos..">
-                                <button id="price_calculator" class="btn btn-success" type="button" onclick=""> Calcular</button>
-                                <button id="price_cleaner" class="btn btn-success" type="button" onclick=""> Limpiar</button>
+                                <button id="price_calculator" class="btn btn-success" type="button" onclick=calculatePrice("wordcount","rate","price_module_error")> Calcular</button>
+                                <button id="price_cleaner" class="btn btn-success" type="button" onclick=clearFields(["wordcount","rate"])> Limpiar</button>
                             </div>
                         </fieldset>
                     </div>
 
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
-                            <legend class="label"> CONTAR PALABRAS</legend>
+                            <legend class="label papayuela-color module-title"> CONTAR PALABRAS</legend>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="segment">Segmento</label>
                                 </div>
-                                <textarea id="segment" class="form-control" rows="3" cols="50" onfocus=""></textarea>
+                                <textarea id="segment" class="form-control" rows="3" cols="50" onfocus="clearPlaceholder('segment_module_error')"></textarea>
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón cuenta las palabras del segmento. El segundo limpia los campos.">
-                                <button id="word_counter_button" class="btn btn-success" type="button" onclick=""> Calcular</button>
-                                <button id="segment_cleaner" class="btn btn-success" type="button" onclick=""> Limpiar</button>
+                                <button id="word_counter_button" class="btn btn-success" type="button" onclick="countWords('segment','segment_module_error')"> Calcular</button>
+                                <button id="segment_cleaner" class="btn btn-success" type="button" onclick="clearFields(['segment'])"> Limpiar</button>
                             </div>
                         </fieldset>
                     </div> 
@@ -88,62 +89,62 @@
 
 
                 <div class="row">
-                    <div id="remaining_words_module_error" class="col-xs-12 col-sm-6">ERROR MESSAGE APPEARS HERE VIA JS</div>
-                    <div id="estimation_module_error" class="col-xs-12 col-sm-6">ERROR MESSAGE APPEARS HERE VIA JS</div>
+                    <div id="remaining_words_module_error" class="col-xs-12 col-sm-6 error"></div>
+                    <div id="estimation_module_error" class="col-xs-12 col-sm-6 error"></div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
-                            <legend class="label"> CALCULAR PROGRESO</legend>
+                            <legend class="label papayuela-color module-title"> CALCULAR PROGRESO </legend>
                             <div class="input-group">                            
 								<div class="input-group-addon">                            	
                                     <label class="control-label" for="quota">Cuota diaria</label>
                             	</div>
-                            	<input id="quota" class="form-control" type="number" min=0 onfocus=""/>
+                            	<input id="quota" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_module_error')"/>
                             </div>
                             <br/>
                             <div class="input-group">							                            
                             	<div class="input-group-addon">
                             		<label class="control-label" for="remaining_at_first">Palabras restantes al inicio</label>
                             	</div>
-                            	<input id="remaining_at_first" class="form-control" type="number" min=0 onfocus=""/>
+                            	<input id="remaining_at_first" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_module_error')"/>
                             </div>
                             <br/>
                             <div class="input-group">
                             	<div class="input-group-addon">
                             		<label class="control-label" for="translated_so_far">Palabras restantes ahora</label>
                             	</div>
-                            	<input id="translated_so_far" class="form-control" type="number" min=0 onfocus=""/>
+                            	<input id="translated_so_far" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_module_error')"/>
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón calcula cuánto falta pra cubrir una cuota diaria de traducción. El segundo limpia los campos.">
-                                <button id="remaining_words_calculator" class="btn btn-success" type="button" onclick="")> Calcular</button>
-                                <button id="remaining_words_cleaner" class="btn btn-success" type="button" onclick=""> Limpiar</button>
+                                <button id="remaining_words_calculator" class="btn btn-success" type="button" onclick=findRemainingWords("quota","remaining_at_first","translated_so_far","remaining_words_module_error")> Calcular</button>
+                                <button id="remaining_words_cleaner" class="btn btn-success" type="button" onclick=clearFields(["quota","remaining_at_first","translated_so_far"])> Limpiar</button>
                             </div>
                         </fieldset>
                     </div>
         
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
-                            <legend class="label"> ESTIMAR DURACIÓN</legend>
+                            <legend class="label papayuela-color module-title"> ESTIMAR DURACIÓN</legend>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="volume">Volumen del encargo</label>
                                 </div>
-                                <input id="volume" class="form-control" type="number" min="0" onfocus=""/>
+                                <input id="volume" class="form-control" type="number" min="0" onfocus="clearPlaceholder('estimation_module_error')"/>
                             </div>
                             <br/>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="speed">Velocidad (palabras/día)</label>
                                 </div>
-                                <input id="speed" class="form-control" type=number min="0" onfocus=""/>
+                                <input id="speed" class="form-control" type=number min="0" onfocus="clearPlaceholder('estimation_module_error')"/>
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón estima los días que se tardará en traducir un texto dada una velocidad en palabras por día. El segundo limpia los campos.">
-                                <button id="estimate_days_button" class="btn btn-success" type="button" onclick=""> Calcular</button>
-                                <button id="estimate_cleaner" class="btn btn-success" type="button" onclick=""> Limpiar</button>
+                                <button id="estimate_days_button" class="btn btn-success" type="button" onclick="estimateDays('volume','speed', 'estimation_module_error')"> Calcular</button>
+                                <button id="estimate_cleaner" class="btn btn-success" type="button" onclick=clearFields(["volume","speed"])> Limpiar</button>
                             </div>
                         </fieldset>
                     </div>
@@ -155,16 +156,15 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12">
+                    <div class="col-xs-12 col-sm-12 papayuela-color">
                         <p>Created by Andrés Felipe Quintero</p>
                     </div>
                 </div>
             </div>
         </footer>
 
-<!-- TODO: add business logic script. -->
+        <script src="js/logic.js"></script>
         <script src="jquery/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-		</script>
     </body>
 </html>

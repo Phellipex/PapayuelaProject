@@ -1,0 +1,39 @@
+header {
+    padding-bottom:1em;
+}
+
+body {
+    background-color: #E5E2D3;
+    padding: 2em;
+}
+
+img {
+    
+    margin-top: 3em;
+    margin-bottom:3em;
+}
+
+p {
+    text-align: justify;
+}
+
+footer p {
+    text-align:center;
+    font-weight:bold;
+}
+
+.papayuela-color {
+    background-color: #CB6712;
+    color:white;
+}
+
+.error {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.module-title {
+    font-size:18px;
+    text-align:center;
+    padding:0.5em;
+}
