@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="AN">
+    <title>HERAMIENTAS DE CONTEO</title>
+<!-- TODO: add media queries, viewports, etc. -->
+<!-- TODO: add bootstrap css links. -->
+<!-- TODO: add custom css link. -->
+	
+  </head>
+
+  <body>
+<!-- The divs required for the bootstrap layout (columns, rows) are already there.-->
+<!-- TODO: style the page using bootstrap. -->
+    <header>
+      <div>
+        <div>
+          <div>
+            <h1>HERAMIENTAS DE CONTEO</h1>
+            <p>Un conjunto de herramientas simples para hacer cálculos relevantes para un traductor.</p>
+          </div>
+        </div>
+
+        <div>
+          <img  src="#" alt="IMAGE GOES HERE"/>
+        </div>
+      </div>
+    </header>
+
+    <div>
+      <form>
+
+        <div>
+          <div id="price_module_error">ERROR MESSAGE APPEARS HERE VIA JS</div>
+          <div id="segment_module_error">ERROR MESSAGE APPEARS HERE VIA JS</div>
+        </div>
+
+        <div>
+          <div>
+            <fieldset>
+              <legend> COTIZAR TRADUCCIÓN</legend>
+              <div>
+                <div>
+                  <label for="wordcount">Cantidad de palabras</label>
+                </div>
+                <input id="wordcount" type="number" min="0" onfocus=""/>
+              </div> 
+              <br/>
+              <div>
+                <div>
+                  <label for="rate">Valor de cada palabra</label>
+                </div>
+                <input id="rate" type="number" min="0" onfocus=""/>
+              </div>
+              <br/>
+              <div role="group" aria-label="El primer botón calcula el valor de una traducción. El segundo limpia los campos..">
+                <button id="price_calculator" type="button" onclick=""> Calcular</button>
+                <button id="price_cleaner" type="button" onclick=""> Limpiar</button>
+              </div>
+            </fieldset>
+          </div>
+
+          <div>
+            <fieldset>
+              <legend> CONTAR PALABRAS</legend>
+              <div>
+                <div>
+                  <label for="segment">Segmento</label>
+                </div>
+                <textarea id="segment" rows="3" cols="50" onfocus=""></textarea>
+              </div>
+              <br/>
+              <div role="group" aria-label="El primer botón cuenta las palabras del segment. El segundo limpia los campos.">
+                <button id="word_counter_button" type="button" onclick=""> Calcular</button>
+                <button id="segment_cleaner" type="button" onclick=""> Limpiar</button>
+              </div>
+            </fieldset>
+          </div> 
+        </div>
+
+
+        <div>
+          <div id="remaining_words_module_error">ERROR MESSAGE APPEARS HERE VIA JS</div>
+          <div id="estimation_module_error">ERROR MESSAGE APPEARS HERE VIA JS</div>
+        </div>
+
+        <div>
+          <div>
+            <fieldset>
+              <legend> CALCULAR PROGRESO </legend>
+              <div>              
+				<div>              	
+                  <label for="quota">Cuota diaria</label>
+              	</div>
+              	<input id="quota" type="number" min=0 onfocus=""/>
+              </div>
+              <br/>
+              <div>							              
+              	<div>
+              		<label for="remaining_at_first">Palabras restantes al inicio</label>
+              	</div>
+              	<input id="remaining_at_first" type="number" min=0 onfocus=""/>
+              </div>
+              <br/>
+              <div>
+              	<div>
+              		<label for="translated_so_far">Palabras restantes ahora</label>
+              	</div>
+              	<input id="translated_so_far" type="number" min=0 onfocus=""/>
+              </div>
+              <br/>
+              <div role="group" aria-label="El primer botón calcula cuánto falta pra cubrir una cuota diaria de traducción. El segundo limpia los campos.">
+                <button id="remaining_words_calculator" type="button" type="button" onclick=""> Calcular</button>
+                <button id="remaining_words_cleaner" type="button" onclick=""> Limpiar</button>
+              </div>
+            </fieldset>
+          </div>
+    
+          <div>
+            <fieldset>
+              <legend> ESTIMAR DURACIÓN</legend>
+              <div>
+                <div>
+                  <label for="volume">Volumen del encargo</label>
+                </div>
+                <input id="volume" type="number" min="0" onfocus=""/>
+              </div>
+              <br/>
+              <div>
+                <div>
+                  <label for="speed">Velocidad (palabras/día)</label>
+                </div>
+                <input id="speed" type=number min="0" onfocus=""/>
+              </div>
+              <br/>
+              <div role="group" aria-label="El primer botón estima los días que se tardará en traducir un texto dada una velocidad en palabras por día. El segundo limpia los campos.">
+                <button id="estimate_days_button" type="button" onclick=""> Calcular</button>
+                <button id="estimate_cleaner" type="button" onclick="")> Limpiar</button>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <div>
+        <div>
+          <div>
+            <p>Created by Andrés Felipe Quintero</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+<!-- TODO: add bootstrap scripts. -->
+<!-- TODO: add business logic script. -->
+  </body>
+</html>
