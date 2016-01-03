@@ -13,7 +13,6 @@
     </head>
 
     <body>
-
         <header class="container">
             <div class="row row-header papayuela-color">
                 <div class="col-xs-9 col-sm-10">
@@ -38,16 +37,12 @@
                     <div id="segment_module_error" class="col-xs-12 col-sm-6 error"></div>
                 </div>
 
-				<!-- TODO: add glyphicons to the text inside the legend tags. Glyphicons should represent the action described in the text. -->
-                <!-- TODO: add the cog glyphicon to the buttons. -->
-				<!-- TODO: add the question mark glyphicon to the far right of each button group. -->
-				<!-- TODO: add an explanatorytooltip to each question mark glyphicon. -->
-				<!-- TODO: add the papayuela color to the buttons. -->
-				<!-- TODO: change the tooltip default black color to a color that matches the overall color-scheme. -->
+				<!-- TODO: add an explanatory tooltip to each question mark glyphicon. -->
+				<!-- TODO: change the tooltip default black color to a color that matches. -->
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
-                            <legend class="label papayuela-color module-title"> COTIZAR TRADUCCIÓN</legend>
+                            <legend class="label papayuela-color module-title"><span class="glyphicon glyphicon-usd"></span> COTIZAR TRADUCCIÓN</legend>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="wordcount">Cantidad de palabras</label>
@@ -63,15 +58,16 @@
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón calcula el valor de una traducción. El segundo limpia los campos..">
-                                <button id="price_calculator" class="btn btn-success" type="button" onclick=calculatePrice("wordcount","rate","price_module_error")> Calcular</button>
-                                <button id="price_cleaner" class="btn btn-success" type="button" onclick=clearFields(["wordcount","rate"])> Limpiar</button>
+                                <button id="price_calculator" class="btn btn-success" type="button" onclick=calculatePrice("wordcount","rate","price_module_error")><span class="glyphicon glyphicon-cog"></span> Calcular</button>
+                                <button id="price_cleaner" class="btn btn-success" type="button" onclick=clearFields(["wordcount","rate"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
+							<span class="glyphicon glyphicon-question-sign help-symbol"></span>
                         </fieldset>
                     </div>
 
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
-                            <legend class="label papayuela-color module-title"> CONTAR PALABRAS</legend>
+                            <legend class="label papayuela-color module-title"><span class="glyphicon glyphicon-text-size"></span> CONTAR PALABRAS</legend>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="segment">Segmento</label>
@@ -80,9 +76,10 @@
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón cuenta las palabras del segmento. El segundo limpia los campos.">
-                                <button id="word_counter_button" class="btn btn-success" type="button" onclick="countWords('segment','segment_module_error')"> Calcular</button>
-                                <button id="segment_cleaner" class="btn btn-success" type="button" onclick="clearFields(['segment'])"> Limpiar</button>
+                                <button id="word_counter_button" class="btn btn-success" type="button" onclick="countWords('segment','segment_module_error')"><span class="glyphicon glyphicon-cog"></span> Calcular</button>
+                                <button id="segment_cleaner" class="btn btn-success" type="button" onclick="clearFields(['segment'])"><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
+							<span class="glyphicon glyphicon-question-sign help-symbol"></span>
                         </fieldset>
                     </div> 
                 </div>
@@ -96,7 +93,7 @@
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
-                            <legend class="label papayuela-color module-title"> CALCULAR PROGRESO </legend>
+                            <legend class="label papayuela-color module-title"><span class="glyphicon glyphicon-hourglass"></span> CALCULAR PROGRESO </legend>
                             <div class="input-group">                            
 								<div class="input-group-addon">                            	
                                     <label class="control-label" for="quota">Cuota diaria</label>
@@ -119,15 +116,16 @@
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón calcula cuánto falta pra cubrir una cuota diaria de traducción. El segundo limpia los campos.">
-                                <button id="remaining_words_calculator" class="btn btn-success" type="button" onclick=findRemainingWords("quota","remaining_at_first","translated_so_far","remaining_words_module_error")> Calcular</button>
-                                <button id="remaining_words_cleaner" class="btn btn-success" type="button" onclick=clearFields(["quota","remaining_at_first","translated_so_far"])> Limpiar</button>
+                                <button id="remaining_words_calculator" class="btn btn-success" type="button" onclick=findRemainingWords("quota","remaining_at_first","translated_so_far","remaining_words_module_error")><span class="glyphicon glyphicon-cog"></span> Calcular</button>
+                                <button id="remaining_words_cleaner" class="btn btn-success" type="button" onclick=clearFields(["quota","remaining_at_first","translated_so_far"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
+							<span class="glyphicon glyphicon-question-sign help-symbol"></span>
                         </fieldset>
                     </div>
         
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
-                            <legend class="label papayuela-color module-title"> ESTIMAR DURACIÓN</legend>
+                            <legend class="label papayuela-color module-title"><span class="glyphicon glyphicon-calendar"></span> ESTIMAR DURACIÓN</legend>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="volume">Volumen del encargo</label>
@@ -143,9 +141,10 @@
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón estima los días que se tardará en traducir un texto dada una velocidad en palabras por día. El segundo limpia los campos.">
-                                <button id="estimate_days_button" class="btn btn-success" type="button" onclick="estimateDays('volume','speed', 'estimation_module_error')"> Calcular</button>
-                                <button id="estimate_cleaner" class="btn btn-success" type="button" onclick=clearFields(["volume","speed"])> Limpiar</button>
+                                <button id="estimate_days_button" class="btn btn-success" type="button" onclick="estimateDays('volume','speed', 'estimation_module_error')"><span class="glyphicon glyphicon-cog"></span> Calcular</button>
+                                <button id="estimate_cleaner" class="btn btn-success" type="button" onclick=clearFields(["volume","speed"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
+							<span class="glyphicon glyphicon-question-sign help-symbol"></span>
                         </fieldset>
                     </div>
                 </div>
