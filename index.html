@@ -22,9 +22,8 @@
                     </div>
                 </div>
 
-				<!-- TODO: find FREE (GPL or CC licensed image to put here) -->
                 <div class="col-xs-3 col-sm-2">
-                    <img class="img-responsive img-circle" src="#" alt="IMAGE GOES HERE"/>
+                    <img class="img-responsive img-circle" src="img/papayuela.jpg" alt="The Papayuela Project"/>
                 </div>
             </div>
         </header>
@@ -37,8 +36,6 @@
                     <div id="segment_module_error" class="col-xs-12 col-sm-6 error"></div>
                 </div>
 
-				<!-- TODO: add an explanatory tooltip to each question mark glyphicon. -->
-				<!-- TODO: change the tooltip default black color to a color that matches. -->
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-6">
                         <fieldset>
@@ -61,7 +58,7 @@
                                 <button id="price_calculator" class="btn btn-success" type="button" onclick=calculatePrice("wordcount","rate","price_module_error")><span class="glyphicon glyphicon-cog"></span> Calcular</button>
                                 <button id="price_cleaner" class="btn btn-success" type="button" onclick=clearFields(["wordcount","rate"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
-							<span class="glyphicon glyphicon-question-sign help-symbol"></span>
+							<span class="glyphicon glyphicon-question-sign help-symbol" data-toggle="tooltip" data-placement="left" title="Este módulo sirve para cotizar una traducción basándose en un cobro por palabra. Usted decide si es por palabra en el original o si es por palabra traducida."></span>
                         </fieldset>
                     </div>
 
@@ -79,7 +76,7 @@
                                 <button id="word_counter_button" class="btn btn-success" type="button" onclick="countWords('segment','segment_module_error')"><span class="glyphicon glyphicon-cog"></span> Calcular</button>
                                 <button id="segment_cleaner" class="btn btn-success" type="button" onclick="clearFields(['segment'])"><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
-							<span class="glyphicon glyphicon-question-sign help-symbol"></span>
+							<span class="glyphicon glyphicon-question-sign help-symbol" data-toggle="tooltip" data-placement="left" title="Este módulo sirve para saber cuántas palabras hay en un segmento. Es útil cuando se desea cotizar un servicio pero se desconoce el volumen de palabras en el texto."></span>
                         </fieldset>
                     </div> 
                 </div>
@@ -119,7 +116,7 @@
                                 <button id="remaining_words_calculator" class="btn btn-success" type="button" onclick=findRemainingWords("quota","remaining_at_first","translated_so_far","remaining_words_module_error")><span class="glyphicon glyphicon-cog"></span> Calcular</button>
                                 <button id="remaining_words_cleaner" class="btn btn-success" type="button" onclick=clearFields(["quota","remaining_at_first","translated_so_far"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
-							<span class="glyphicon glyphicon-question-sign help-symbol"></span>
+							<span class="glyphicon glyphicon-question-sign help-symbol" data-toggle="tooltip" data-placement="left" title="Este módulo sirve para saber cuántas palabras faltan para cumplir con una cuota diaria. La cuota es el número mínimo de palabras que se deben traducir en un día."></span>
                         </fieldset>
                     </div>
         
@@ -144,20 +141,28 @@
                                 <button id="estimate_days_button" class="btn btn-success" type="button" onclick="estimateDays('volume','speed', 'estimation_module_error')"><span class="glyphicon glyphicon-cog"></span> Calcular</button>
                                 <button id="estimate_cleaner" class="btn btn-success" type="button" onclick=clearFields(["volume","speed"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
-							<span class="glyphicon glyphicon-question-sign help-symbol"></span>
+							<span class="glyphicon glyphicon-question-sign help-symbol" data-toggle="tooltip" data-placement="left" title="Este módulo sirve para averiguar cuántos días se tardaría en traducir determinado número total de palabras si se mantiene un ritmo constante de palabras traducidas por día."></span>
                         </fieldset>
                     </div>
                 </div>
             </form>
         </div>
 
-		<!-- TODO: add more information in the footer. e.g. github, email, etc.-->
         <footer>
             <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 papayuela-color">
-                        <p>Created by Andrés Felipe Quintero</p>
+                <div class="row row-centered papayuela-color">
+                    <div class="col-xs-12 col-sm-8">
+						<p style="padding-top:2em;">Esta página está licenciada bajo los términos de la licencia <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons-Share Alike.</a></p>
                     </div>
+					
+					<div class="col-xs-12 col-sm-4 footer-content">
+						<strong>ACERCA DE LA IMAGEN</strong>
+						<ul class="list-unstyled">
+							<li><b>TÍTULO: </b>"PAPAYA"</li>
+							<li><b>AUTOR: </b><a href="https://www.flickr.com/photos/45579842@N07/" target="_blank">C.E.I.P. Sambori</a></li>
+							<li><b>LICENCIA: </b>Creative Commons</li>
+						</ul>
+					</div>
                 </div>
             </div>
         </footer>
@@ -165,5 +170,10 @@
         <script src="js/logic.js"></script>
         <script src="jquery/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
     </body>
 </html>

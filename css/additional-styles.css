@@ -43,3 +43,16 @@ footer p {
     font-size:2em;
     color:#59B459;
 }
+
+.tooltip.left .tooltip-inner {
+    background-color:#A8A262;
+}
+
+.tooltip.left .tooltip-arrow {
+          border-left-color: #A8A262;
+}
+
+.footer-content {
+    text-align:justify;
+    font-size:10px;
+}
