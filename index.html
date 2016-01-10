@@ -32,8 +32,8 @@
             <form class="form-horizontal">
 
                 <div class="row">
-                    <div id="price_module_error" class="col-xs-12 col-sm-6 error"></div>
-                    <div id="segment_module_error" class="col-xs-12 col-sm-6 error"></div>
+                    <div id="price_message_area" class="col-xs-12 col-sm-6 error"></div>
+                    <div id="segment_message_area" class="col-xs-12 col-sm-6 error"></div>
                 </div>
 
                 <div class="form-group">
@@ -44,18 +44,18 @@
                                 <div class="input-group-addon">
                                     <label class="control-label" for="wordcount">Cantidad de palabras</label>
                                 </div>
-                                <input id="wordcount" class="form-control"  type="number" min="0"  onfocus="clearPlaceholder('price_module_error')"/>
+                                <input id="wordcount" class="form-control"  type="number" min="0"  onfocus="clearPlaceholder('price_message_area')"/>
                             </div>  
                             <br/>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="rate">Valor de cada palabra</label>
                                 </div>
-                                <input id="rate" class="form-control" type="number" min="0" onfocus="clearPlaceholder('price_module_error')"/>
+                                <input id="rate" class="form-control" type="number" min="0" onfocus="clearPlaceholder('price_message_area')"/>
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón calcula el valor de una traducción. El segundo limpia los campos..">
-                                <button id="price_calculator" class="btn btn-success" type="button" onclick=calculatePrice("wordcount","rate","price_module_error")><span class="glyphicon glyphicon-cog"></span> Calcular</button>
+                                <button id="price_calculator" class="btn btn-success" type="button" onclick=calculatePrice("wordcount","rate","price_message_area")><span class="glyphicon glyphicon-cog"></span> Calcular</button>
                                 <button id="price_cleaner" class="btn btn-success" type="button" onclick=clearFields(["wordcount","rate"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
 							<span class="glyphicon glyphicon-question-sign help-symbol" data-toggle="tooltip" data-placement="left" title="Este módulo sirve para cotizar una traducción basándose en un cobro por palabra. Usted decide si es por palabra en el original o si es por palabra traducida."></span>
@@ -69,11 +69,11 @@
                                 <div class="input-group-addon">
                                     <label class="control-label" for="segment">Segmento</label>
                                 </div>
-                                <textarea id="segment" class="form-control" rows="3" cols="50" onfocus="clearPlaceholder('segment_module_error')"></textarea>
+                                <textarea id="segment" class="form-control" rows="3" cols="50" onfocus="clearPlaceholder('segment_message_area')"></textarea>
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón cuenta las palabras del segmento. El segundo limpia los campos.">
-                                <button id="word_counter_button" class="btn btn-success" type="button" onclick="countWords('segment','segment_module_error')"><span class="glyphicon glyphicon-cog"></span> Calcular</button>
+                                <button id="word_counter_button" class="btn btn-success" type="button" onclick="countWords('segment','segment_message_area')"><span class="glyphicon glyphicon-cog"></span> Calcular</button>
                                 <button id="segment_cleaner" class="btn btn-success" type="button" onclick="clearFields(['segment'])"><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
 							<span class="glyphicon glyphicon-question-sign help-symbol" data-toggle="tooltip" data-placement="left" title="Este módulo sirve para saber cuántas palabras hay en un segmento. Es útil cuando se desea cotizar un servicio pero se desconoce el volumen de palabras en el texto."></span>
@@ -83,8 +83,8 @@
 
 
                 <div class="row">
-                    <div id="remaining_words_module_error" class="col-xs-12 col-sm-6 error"></div>
-                    <div id="estimation_module_error" class="col-xs-12 col-sm-6 error"></div>
+                    <div id="remaining_words_message_area" class="col-xs-12 col-sm-6 error"></div>
+                    <div id="estimation_message_area" class="col-xs-12 col-sm-6 error"></div>
                 </div>
 
                 <div class="form-group">
@@ -95,25 +95,25 @@
 								<div class="input-group-addon">                            	
                                     <label class="control-label" for="quota">Cuota diaria</label>
                             	</div>
-                            	<input id="quota" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_module_error')"/>
+                            	<input id="quota" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_message_area')"/>
                             </div>
                             <br/>
                             <div class="input-group">							                            
                             	<div class="input-group-addon">
                             		<label class="control-label" for="remaining_at_first">Palabras restantes al inicio</label>
                             	</div>
-                            	<input id="remaining_at_first" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_module_error')"/>
+                            	<input id="remaining_at_first" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_message_area')"/>
                             </div>
                             <br/>
                             <div class="input-group">
                             	<div class="input-group-addon">
                             		<label class="control-label" for="translated_so_far">Palabras restantes ahora</label>
                             	</div>
-                            	<input id="translated_so_far" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_module_error')"/>
+                            	<input id="translated_so_far" class="form-control" type="number" min=0 onfocus="clearPlaceholder('remaining_words_message_area')"/>
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón calcula cuánto falta pra cubrir una cuota diaria de traducción. El segundo limpia los campos.">
-                                <button id="remaining_words_calculator" class="btn btn-success" type="button" onclick=findRemainingWords("quota","remaining_at_first","translated_so_far","remaining_words_module_error")><span class="glyphicon glyphicon-cog"></span> Calcular</button>
+                                <button id="remaining_words_calculator" class="btn btn-success" type="button" onclick=findRemainingWords("quota","remaining_at_first","translated_so_far","remaining_words_message_area")><span class="glyphicon glyphicon-cog"></span> Calcular</button>
                                 <button id="remaining_words_cleaner" class="btn btn-success" type="button" onclick=clearFields(["quota","remaining_at_first","translated_so_far"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
 							<span class="glyphicon glyphicon-question-sign help-symbol" data-toggle="tooltip" data-placement="left" title="Este módulo sirve para saber cuántas palabras faltan para cumplir con una cuota diaria. La cuota es el número mínimo de palabras que se deben traducir en un día."></span>
@@ -127,18 +127,18 @@
                                 <div class="input-group-addon">
                                     <label class="control-label" for="volume">Volumen del encargo</label>
                                 </div>
-                                <input id="volume" class="form-control" type="number" min="0" onfocus="clearPlaceholder('estimation_module_error')"/>
+                                <input id="volume" class="form-control" type="number" min="0" onfocus="clearPlaceholder('estimation_message_area')"/>
                             </div>
                             <br/>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <label class="control-label" for="speed">Velocidad (palabras/día)</label>
                                 </div>
-                                <input id="speed" class="form-control" type=number min="0" onfocus="clearPlaceholder('estimation_module_error')"/>
+                                <input id="speed" class="form-control" type=number min="0" onfocus="clearPlaceholder('estimation_message_area')"/>
                             </div>
                             <br/>
                             <div class="btn-group" role="group" aria-label="El primer botón estima los días que se tardará en traducir un texto dada una velocidad en palabras por día. El segundo limpia los campos.">
-                                <button id="estimate_days_button" class="btn btn-success" type="button" onclick="estimateDays('volume','speed', 'estimation_module_error')"><span class="glyphicon glyphicon-cog"></span> Calcular</button>
+                                <button id="estimate_days_button" class="btn btn-success" type="button" onclick="estimateDays('volume','speed', 'estimation_message_area')"><span class="glyphicon glyphicon-cog"></span> Calcular</button>
                                 <button id="estimate_cleaner" class="btn btn-success" type="button" onclick=clearFields(["volume","speed"])><span class="glyphicon glyphicon-cog"></span> Limpiar</button>
                             </div>
 							<span class="glyphicon glyphicon-question-sign help-symbol" data-toggle="tooltip" data-placement="left" title="Este módulo sirve para averiguar cuántos días se tardaría en traducir determinado número total de palabras si se mantiene un ritmo constante de palabras traducidas por día."></span>

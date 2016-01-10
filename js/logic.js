@@ -1,19 +1,21 @@
-function countWords(textContainerId, errorPlaceholderId) {
-        clearPlaceholder(errorPlaceholderId);
+emptyFieldMessage = 'no se puede hacer el cálculo porque faltan datos, asegúrese de llenar todos los campos con letras o números según sea el caso.';
+
+function countWords(textContainerId, messagePlaceholderId) {
+        clearPlaceholder(messagePlaceholderId);
         
         if (isEmpty([textContainerId])) {
-            displayEmptyFieldError(errorPlaceholderId);
+            displayError(messagePlaceholderId, emptyFieldMessage);
         } else {
             text = document.getElementById(textContainerId).value;
-            alert("El segmento tiene " + text.split(" ").length + " palabras.");
+            displayMessage(messagePlaceholderId,'El segmento analizado tiene ' + text.split(' ').length + ' palabras.');
         }
 }
 
-function findRemainingWords(quotaValueId, initialWordsId, currentWordsId, errorPlaceholderId) {
-    clearPlaceholder(errorPlaceholderId);
+function findRemainingWords(quotaValueId, initialWordsId, currentWordsId, messagePlaceholderId) {
+    clearPlaceholder(messagePlaceholderId);
     
     if (isEmpty([quotaValueId, initialWordsId, currentWordsId])) {
-        displayEmptyFieldError(errorPlaceholderId);
+        displayError(messagePlaceholderId, emptyFieldMessage);
     } else {
         dailyQuota = document.getElementById(quotaValueId).value;
         initiallyRemainingWords = document.getElementById(initialWordsId).value;
@@ -21,33 +23,32 @@ function findRemainingWords(quotaValueId, initialWordsId, currentWordsId, errorP
         
         translatedSoFar = initiallyRemainingWords - currentlyRemainingWords;
         remainingWords = dailyQuota - translatedSoFar;
-        
-        alert("Se han traducido " + translatedSoFar + " palabras y faltan " + remainingWords + " para terminar.");
+        displayMessage(messagePlaceholderId,'Se han traducido ' + translatedSoFar + ' palabras y faltan ' + remainingWords + ' para terminar.')
     }
 }
 
-function calculatePrice(wordcountContainerId, rateContainerId, errorPlaceholderId) {
-        clearPlaceholder(errorPlaceholderId);
+function calculatePrice(wordcountContainerId, rateContainerId, messagePlaceholderId) {
+        clearPlaceholder(messagePlaceholderId);
         
         if (isEmpty([wordcountContainerId, rateContainerId])) {
-            displayEmptyFieldError(errorPlaceholderId);
+            displayError(messagePlaceholderId, emptyFieldMessage);
         } else {
             words = document.getElementById(wordcountContainerId).value;
             rate = document.getElementById(rateContainerId).value;
-            alert("La traducción valdría " + (words * rate).toLocaleString() + " pesos");
+            displayMessage(messagePlaceholderId,'La traducción valdría ' + (words * rate).toLocaleString() + ' pesos');
         }
 }
 
 
-function estimateDays(volumeContainerId, speedContainerId, errorPlaceholderId) {
-        clearPlaceholder(errorPlaceholderId);
+function estimateDays(volumeContainerId, speedContainerId, messagePlaceholderId) {
+        clearPlaceholder(messagePlaceholderId);
         
-        if (isEmpty([volumeContainerId, speedContainerId, errorPlaceholderId])) {
-                displayEmptyFieldError(errorPlaceholderId);
+        if (isEmpty([volumeContainerId, speedContainerId, messagePlaceholderId])) {
+                displayError(messagePlaceholderId, emptyFieldMessage);
         } else {
                 volume = document.getElementById(volumeContainerId).value;
                 speed = document.getElementById(speedContainerId).value;
-                alert("El proceso de traducción (solo la traducción) se tardará aproximadamente unos " + (volume/speed).toLocaleString() + " días");
+                displayMessage(messagePlaceholderId,'El trabajo se tardará aproximadamente unos ' + (volume/speed).toLocaleString() + ' días');
         }
 }
 
@@ -60,27 +61,41 @@ function clearFields(arrayOfFieldIds) {
 function isEmpty(arrayOfFieldIds) {
     for (elementId of arrayOfFieldIds){
         if (document.getElementById(elementId).value == ''){
-            return true;
-            break;
+                return true;
+                break;
         }
     }
 }
 
-function displayEmptyFieldError(placeholderId) {
-    error_node = document.getElementById(placeholderId);
-    warning_node = document.createElement('div');
-    warning_node.setAttribute('class','alert alert-danger alert-dismissible');
-    warning_node.setAttribute('role','alert');
+function displayError(placeholderId, errorMessage) {
+    errorNode = document.getElementById(placeholderId);
+    warningNode = document.createElement('div');
+    warningNode.setAttribute('class','alert alert-danger alert-dismissible');
+    warningNode.setAttribute('role','alert');
     
-    warning_message_title = document.createElement('strong');
-    warning_message_title.appendChild(document.createTextNode('ERROR: '));
+    warningMessageTitle = document.createElement('strong');
+    warningMessageTitle.appendChild(document.createTextNode('ERROR: '));
     
-    warning_message_content = document.createTextNode('no se puede hacer el cálculo porque faltan datos, asegúrese de llenar todos los campos con letras o números según sea el caso.');
+    warningMessageContent = document.createTextNode(errorMessage);
 
-    warning_node.appendChild(warning_message_title);
-    warning_node.appendChild(warning_message_content);
+    warningNode.appendChild(warningMessageTitle);
+    warningNode.appendChild(warningMessageContent);
     
-    error_node.appendChild(warning_node);
+    errorNode.appendChild(warningNode);
+}
+
+function displayMessage(placeholderId, messageText) {
+    messageNode = document.getElementById(placeholderId);
+    resultNode = document.createElement('div');
+    resultNode.setAttribute('class','alert alert-success alert-dismissible');
+    resultNode.setAttribute('style', 'text-align: center;');
+    resultNode.setAttribute('role','alert');
+    
+    resultMessageContent = document.createTextNode(messageText);
+
+    resultNode.appendChild(resultMessageContent);
+    
+    messageNode.appendChild(resultNode);
 }
 
 function clearPlaceholder(placeholderId) {
