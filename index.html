@@ -13,6 +13,42 @@
     </head>
 
     <body>
+		
+		<div id="copyrightModal" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">CONTENIDO DE TERCEROS</h4>
+					</div>
+					
+					<div class="modal-body">
+						
+						
+						<div class="media">
+							<div class="media-left media-top">
+								<a href="https://www.flickr.com/photos/45579842@N07/4187619942/" target="_blank">
+									<img id="modal-image" class="media-object img-thumbnail img-responsive" src="img/papayuela.jpg" alt="Imagen de una papayuela"/>
+								</a>
+							</div>
+							
+							<div class="media-body">
+								<ul class="list-unstyled">
+									<li><b>TÍTULO:</b> "PAPAYA"</li>
+									<li><b>AUTOR:</b> <a href="https://www.flickr.com/people/45579842@N07/" target="_blank">C.E.I.P. Sambori</a></li>
+									<li><b>LICENCIA:</b> <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">Creative Commons - Attribution 2.0 generic</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
         <header class="container">
             <div class="row row-header papayuela-color">
                 <div class="col-xs-9 col-sm-10">
@@ -23,7 +59,7 @@
                 </div>
 
                 <div class="col-xs-3 col-sm-2">
-                    <img class="img-responsive img-circle" src="img/papayuela.jpg" alt="The Papayuela Project"/>
+                    <img id="title-image" class="img-responsive img-circle" src="img/papayuela.jpg" alt="The Papayuela Project"/>
                 </div>
             </div>
         </header>
@@ -32,8 +68,8 @@
             <form class="form-horizontal">
 
                 <div class="row">
-                    <div id="price_message_area" class="col-xs-12 col-sm-6 error"></div>
-                    <div id="segment_message_area" class="col-xs-12 col-sm-6 error"></div>
+                    <div id="price_message_area" class="col-xs-12 col-sm-6 message"></div>
+                    <div id="segment_message_area" class="col-xs-12 col-sm-6 message"></div>
                 </div>
 
                 <div class="form-group">
@@ -83,8 +119,8 @@
 
 
                 <div class="row">
-                    <div id="remaining_words_message_area" class="col-xs-12 col-sm-6 error"></div>
-                    <div id="estimation_message_area" class="col-xs-12 col-sm-6 error"></div>
+                    <div id="remaining_words_message_area" class="col-xs-12 col-sm-6 message"></div>
+                    <div id="estimation_message_area" class="col-xs-12 col-sm-6 message"></div>
                 </div>
 
                 <div class="form-group">
@@ -151,24 +187,15 @@
         <footer>
             <div class="container">
                 <div class="row row-centered papayuela-color">
-                    <div class="col-xs-12 col-sm-8">
-						<p style="padding-top:2em;">Esta página está licenciada bajo los términos de la licencia <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons-Share Alike.</a></p>
+                    <div class="col-xs-12 col-sm-12">
+						<p>Este sitio está cubierto por la licencia <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons-Share Alike.</a> <a data-toggle="modal" data-target="#copyrightModal">Licencias de terceros</a></p>
                     </div>
-					
-					<div class="col-xs-12 col-sm-4 footer-content">
-						<strong>ACERCA DE LA IMAGEN</strong>
-						<ul class="list-unstyled">
-							<li><b>TÍTULO: </b>"PAPAYA"</li>
-							<li><b>AUTOR: </b><a href="https://www.flickr.com/photos/45579842@N07/" target="_blank">C.E.I.P. Sambori</a></li>
-							<li><b>LICENCIA: </b>Creative Commons</li>
-						</ul>
-					</div>
                 </div>
             </div>
         </footer>
 
         <script src="js/logic.js"></script>
-        <script src="jquery/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 		<script>
 			$(document).ready(function(){

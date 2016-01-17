@@ -7,10 +7,15 @@ body {
     padding: 2em;
 }
 
-img {
+#title-image {
     
     margin-top: 3em;
     margin-bottom:3em;
+}
+
+#modal-image {
+    height:115px;
+    width:90px;
 }
 
 p {
@@ -19,7 +24,8 @@ p {
 
 footer p {
     text-align:center;
-    font-weight:bold;
+    font-size: 12px;
+    padding-top:1em;
 }
 
 .papayuela-color {
@@ -27,7 +33,7 @@ footer p {
     color:white;
 }
 
-.error {
+.message {
     margin-top: 1em;
     margin-bottom: 1em;
 }
@@ -53,6 +59,4 @@ footer p {
 }
 
 .footer-content {
-    text-align:justify;
-    font-size:10px;
 }

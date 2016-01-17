@@ -70,7 +70,7 @@ function isEmpty(arrayOfFieldIds) {
 function displayError(placeholderId, errorMessage) {
     errorNode = document.getElementById(placeholderId);
     warningNode = document.createElement('div');
-    warningNode.setAttribute('class','alert alert-danger alert-dismissible');
+    warningNode.setAttribute('class','alert alert-danger');
     warningNode.setAttribute('role','alert');
     
     warningMessageTitle = document.createElement('strong');
@@ -87,7 +87,7 @@ function displayError(placeholderId, errorMessage) {
 function displayMessage(placeholderId, messageText) {
     messageNode = document.getElementById(placeholderId);
     resultNode = document.createElement('div');
-    resultNode.setAttribute('class','alert alert-success alert-dismissible');
+    resultNode.setAttribute('class','alert alert-success');
     resultNode.setAttribute('style', 'text-align: center;');
     resultNode.setAttribute('role','alert');
     
