@@ -22,26 +22,31 @@ function isEmpty(arrayOfFieldIds) {
 }
 
 function displayError(placeholderId, errorMessage) {
-    errorNode = document.getElementById(placeholderId);
-    warningNode = document.createElement('div');
-    warningNode.setAttribute('class','alert alert-danger');
-    warningNode.setAttribute('role','alert');
+    if (screen.width < 768) {
+        alert('Error: ' + errorMessage);
+    } else {
+        
+        errorNode = document.getElementById(placeholderId);
+        warningNode = document.createElement('div');
+        warningNode.setAttribute('class','alert alert-danger');
+        warningNode.setAttribute('role','alert');
+        
+        warningMessageTitle = document.createElement('strong');
+        warningMessageTitle.appendChild(document.createTextNode('ERROR: '));
+        
+        warningMessageContent = document.createTextNode(errorMessage);
     
-    warningMessageTitle = document.createElement('strong');
-    warningMessageTitle.appendChild(document.createTextNode('ERROR: '));
-    
-    warningMessageContent = document.createTextNode(errorMessage);
-
-    warningNode.appendChild(warningMessageTitle);
-    warningNode.appendChild(warningMessageContent);
-    
-    errorNode.appendChild(warningNode);
+        warningNode.appendChild(warningMessageTitle);
+        warningNode.appendChild(warningMessageContent);
+        
+        errorNode.appendChild(warningNode);
+    }
 }
 
 function displayMessage(placeholderId, messageText) {
     
     if (screen.width < 768) {
-        alert(messageText)
+        alert(messageText);
     } else {
         messageNode = document.getElementById(placeholderId);
         resultNode = document.createElement('div');
@@ -77,7 +82,8 @@ function countWords(textContainerId, messagePlaceholderId) {
             displayError(messagePlaceholderId, emptyFieldMessage);
         } else {
             text = document.getElementById(textContainerId).value;
-            displayMessage(messagePlaceholderId,'El segmento analizado tiene ' + text.split(' ').length + ' palabras.');
+            result = 'El segmento analizado tiene ' + text.split(' ').length + ' palabras.';
+            displayMessage(messagePlaceholderId, result);
         }
 }
 
@@ -93,7 +99,8 @@ function findRemainingWords(quotaValueId, initialWordsId, currentWordsId, messag
         
         translatedSoFar = initiallyRemainingWords - currentlyRemainingWords;
         remainingWords = dailyQuota - translatedSoFar;
-        displayMessage(messagePlaceholderId,'Se han traducido ' + translatedSoFar + ' palabras y faltan ' + remainingWords + ' para terminar.')
+        result= 'Se han traducido ' + translatedSoFar + ' palabras y faltan ' + remainingWords + ' para terminar.';
+        displayMessage(messagePlaceholderId,result)
     }
 }
 
@@ -105,6 +112,7 @@ function estimateDays(volumeContainerId, speedContainerId, messagePlaceholderId)
         } else {
                 volume = document.getElementById(volumeContainerId).value;
                 speed = document.getElementById(speedContainerId).value;
-                displayMessage(messagePlaceholderId,'El trabajo se tardará aproximadamente unos ' + (volume/speed).toLocaleString() + ' días');
+                result = 'El trabajo se tardará aproximadamente unos ' + (volume/speed).toLocaleString() + ' días.';
+                displayMessage(messagePlaceholderId, result);
         }
 }
