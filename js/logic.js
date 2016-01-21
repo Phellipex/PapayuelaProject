@@ -99,8 +99,12 @@ function findRemainingWords(quotaValueId, initialWordsId, currentWordsId, messag
         
         translatedSoFar = initiallyRemainingWords - currentlyRemainingWords;
         remainingWords = dailyQuota - translatedSoFar;
-        result= 'Se han traducido ' + translatedSoFar + ' palabras y faltan ' + remainingWords + ' para terminar.';
-        displayMessage(messagePlaceholderId,result)
+        if (remainingWords < 0) {
+            result = 'Van ' + translatedSoFar + (' palabras traducidas. La cuota era ') + dailyQuota + '. eso significa que se han traducido ' + (translatedSoFar - dailyQuota) + ' palabras de más.';
+        } else {
+            result= 'Se han traducido ' + translatedSoFar + ' palabras y faltan ' + remainingWords + ' para terminar.';
+        }
+        displayMessage(messagePlaceholderId,result);
     }
 }
 
