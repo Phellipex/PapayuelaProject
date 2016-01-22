@@ -1,0 +1,119 @@
+@papayuela-orange: #CB6712;
+@papayuela-green: #A8A262;
+@body-background: #E5E2D3;
+@button-foreground: #59B459;
+
+.text-format(@alignment: ~''; @color: ~''; @size: ~''; @weight: ~'') {
+
+    & when not (@alignment = ~''){
+        text-align: @alignment;
+    }
+
+    & when not (@color = ~'') {
+        color: @color;
+    }
+
+    & when not (@size = ~'') {
+        font-size: @size;
+    }
+
+    & when not (@weight = ~'') {
+        font-weight: @weight;
+    }
+}
+
+.element-margin(@top: ~''; @bottom: ~''; @left: ~''; @right: ~'') when (@top = @bottom) and (@top = @left) and (@top = @right) {
+    margin: @top;
+}
+
+.element-margin(@top: ~''; @bottom: ~''; @left: ~''; @right: ~'') when (default()) {
+    
+    & when not (@top = ~'') {
+        margin-top: @top;
+    }
+    
+    & when not (@bottom = ~'') {
+        margin-bottom: @bottom;
+    }
+    
+    & when not (@left = ~'') {
+        margin-left: @left;
+    }
+    
+    & when not (@right = ~'') {
+        margin-right: @right;
+    }
+}
+
+.element-padding(@top: ~''; @bottom: ~''; @left: ~''; @right: ~'') when (@top = @bottom) and (@top = @left) and (@top = @right) {
+padding: @top;
+}
+
+.element-padding(@top: ~''; @bottom: ~''; @left: ~''; @right: ~'') when (default()) {
+    
+    & when not (@top = ~''){
+        padding-top: @top;
+    }
+    
+    & when not (@bottom = ~'') {
+        padding-bottom: @bottom;
+    }
+    
+    & when not (@left = ~'') {
+        padding-left: @left;
+    }
+    
+    & when not (@right = ~'') {
+        padding-right: @right;
+    }
+}
+
+header {
+    .element-padding(@bottom: 1em);
+}
+
+body {
+    background-color: @body-background;
+    .element-padding(2em; 2em; 2em; 2em);
+}
+
+footer p {
+    .element-padding(@top: 1em);
+    .text-format(@alignment: center, @size:12px);
+}
+
+#title-image {
+    .element-margin(@top: 3em; @bottom: 3em);
+}
+
+#modal-image {
+    height:115px;
+    width:90px;
+}
+
+.papayuela-color {
+    background-color: @papayuela-orange;
+    color: white;
+}
+
+.message {
+    .element-margin(@top: 1em; @bottom: 1em);
+}
+
+.module-title {
+    .text-format(@alignment: center; @size: 18px);
+    .element-padding(0.5em; 0.5em; 0.5em; 0.5em);
+}
+
+.help-symbol {
+    float:right;
+    .text-format(@color: @button-foreground; @size: 2em);
+}
+
+.tooltip.left .tooltip-inner {
+    background-color: @papayuela-green;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: @papayuela-green;
+}

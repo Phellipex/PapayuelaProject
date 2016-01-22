@@ -1,62 +1,44 @@
 header {
-    padding-bottom:1em;
+  padding-bottom: 1em;
 }
-
 body {
-    background-color: #E5E2D3;
-    padding: 2em;
+  background-color: #E5E2D3;
+  padding: 2em;
 }
-
-#title-image {
-    
-    margin-top: 3em;
-    margin-bottom:3em;
-}
-
-#modal-image {
-    height:115px;
-    width:90px;
-}
-
-p {
-    text-align: justify;
-}
-
 footer p {
-    text-align:center;
-    font-size: 12px;
-    padding-top:1em;
+  padding-top: 1em;
+  text-align: center;
+  font-size: 12px;
 }
-
+#title-image {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+#modal-image {
+  height: 115px;
+  width: 90px;
+}
 .papayuela-color {
-    background-color: #CB6712;
-    color:white;
+  background-color: #CB6712;
+  color: white;
 }
-
 .message {
-    margin-top: 1em;
-    margin-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
-
 .module-title {
-    font-size:18px;
-    text-align:center;
-    padding:0.5em;
+  text-align: center;
+  font-size: 18px;
+  padding: 0.5em;
 }
-
 .help-symbol {
-    float:right;
-    font-size:2em;
-    color:#59B459;
+  float: right;
+  color: #59B459;
+  font-size: 2em;
 }
-
 .tooltip.left .tooltip-inner {
-    background-color:#A8A262;
+  background-color: #A8A262;
 }
-
 .tooltip.left .tooltip-arrow {
-          border-left-color: #A8A262;
-}
-
-.footer-content {
+  border-left-color: #A8A262;
 }
