@@ -1,72 +1,9 @@
+@import "less_mixins";
+
 @papayuela-orange: #CB6712;
 @papayuela-green: #A8A262;
 @body-background: #E5E2D3;
 @button-foreground: #59B459;
-
-.text-format(@alignment: ~''; @color: ~''; @size: ~''; @weight: ~'') {
-
-    & when not (@alignment = ~''){
-        text-align: @alignment;
-    }
-
-    & when not (@color = ~'') {
-        color: @color;
-    }
-
-    & when not (@size = ~'') {
-        font-size: @size;
-    }
-
-    & when not (@weight = ~'') {
-        font-weight: @weight;
-    }
-}
-
-.element-margin(@top: ~''; @bottom: ~''; @left: ~''; @right: ~'') when (@top = @bottom) and (@top = @left) and (@top = @right) {
-    margin: @top;
-}
-
-.element-margin(@top: ~''; @bottom: ~''; @left: ~''; @right: ~'') when (default()) {
-    
-    & when not (@top = ~'') {
-        margin-top: @top;
-    }
-    
-    & when not (@bottom = ~'') {
-        margin-bottom: @bottom;
-    }
-    
-    & when not (@left = ~'') {
-        margin-left: @left;
-    }
-    
-    & when not (@right = ~'') {
-        margin-right: @right;
-    }
-}
-
-.element-padding(@top: ~''; @bottom: ~''; @left: ~''; @right: ~'') when (@top = @bottom) and (@top = @left) and (@top = @right) {
-padding: @top;
-}
-
-.element-padding(@top: ~''; @bottom: ~''; @left: ~''; @right: ~'') when (default()) {
-    
-    & when not (@top = ~''){
-        padding-top: @top;
-    }
-    
-    & when not (@bottom = ~'') {
-        padding-bottom: @bottom;
-    }
-    
-    & when not (@left = ~'') {
-        padding-left: @left;
-    }
-    
-    & when not (@right = ~'') {
-        padding-right: @right;
-    }
-}
 
 header {
     .element-padding(@bottom: 1em);
