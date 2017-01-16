@@ -1,21 +1,21 @@
-appController = {
+var appController = {
 
     emptyFieldMessage : 'no se puede hacer el cálculo porque faltan datos, asegúrese de llenar todos los campos con letras o números según sea el caso.',
 
     clearPlaceholder : function (placeholderId) {
-        node = document.getElementById(placeholderId);
+        var node = document.getElementById(placeholderId);
         node.innerHTML= '';
         node.removeAttribute('style');
     },
     
     clearFields : function (arrayOfFieldIds) {
-        for (elementId of arrayOfFieldIds) {
+        for (var elementId of arrayOfFieldIds) {
             document.getElementById(elementId).value = '';
         }
     },
 
     isEmpty : function (arrayOfFieldIds) {
-        for (elementId of arrayOfFieldIds){
+        for (var elementId of arrayOfFieldIds){
             if (document.getElementById(elementId).value == ''){
                     return true;
             }
@@ -26,15 +26,15 @@ appController = {
         if (screen.width < 768) {
             alert('Error: ' + errorMessage);
         } else {
-            errorNode = document.getElementById(placeholderId);
-            warningNode = document.createElement('div');
+            var errorNode = document.getElementById(placeholderId);
+            var warningNode = document.createElement('div');
             warningNode.setAttribute('class','alert alert-danger');
             warningNode.setAttribute('role','alert');
                 
-            warningMessageTitle = document.createElement('strong');
+            var warningMessageTitle = document.createElement('strong');
             warningMessageTitle.appendChild(document.createTextNode('ERROR: '));
     
-            warningMessageContent = document.createTextNode(errorMessage);
+            var warningMessageContent = document.createTextNode(errorMessage);
 
             warningNode.appendChild(warningMessageTitle);
             warningNode.appendChild(warningMessageContent);
@@ -48,13 +48,13 @@ appController = {
         if (screen.width < 768) {
             alert(messageText);
         } else {
-            messageNode = document.getElementById(placeholderId);
-            resultNode = document.createElement('div');
+            var messageNode = document.getElementById(placeholderId);
+            var resultNode = document.createElement('div');
             resultNode.setAttribute('class','alert alert-success');
             resultNode.setAttribute('style', 'text-align: center;');
             resultNode.setAttribute('role','alert');
             
-            resultMessageContent = document.createTextNode(messageText);
+            var resultMessageContent = document.createTextNode(messageText);
         
             resultNode.appendChild(resultMessageContent);
             
@@ -68,10 +68,10 @@ appController = {
         if (this.isEmpty([wordcountContainerId, rateContainerId])) {
             this.displayError(messagePlaceholderId, this.emptyFieldMessage);
         } else {
-            words = document.getElementById(wordcountContainerId).value;
-            rate = document.getElementById(rateContainerId).value;
-            result = 'La traducción valdría ' + (words * rate).toLocaleString() + ' pesos';
-            this.displayMessage(messagePlaceholderId,result);
+            var words = document.getElementById(wordcountContainerId).value;
+            var rate = document.getElementById(rateContainerId).value;
+            var result = 'La traducción valdría ' + (words * rate).toLocaleString() + ' pesos';
+            this.displayMessage(messagePlaceholderId, result);
         }
     },
 
@@ -81,8 +81,8 @@ appController = {
         if (this.isEmpty([textContainerId])) {
             this.displayError(messagePlaceholderId, this.emptyFieldMessage);
         } else {
-            text = document.getElementById(textContainerId).value;
-            result = 'El segmento analizado tiene ' + text.split(' ').length + ' palabras.';
+            var text = document.getElementById(textContainerId).value;
+            var result = 'El segmento analizado tiene ' + text.split(' ').length + ' palabras.';
             this.displayMessage(messagePlaceholderId, result);
         }
     },
@@ -93,16 +93,16 @@ appController = {
         if (this.isEmpty([quotaValueId, initialWordsId, currentWordsId])) {
             this.displayError(messagePlaceholderId, this.emptyFieldMessage);
         } else {
-            dailyQuota = document.getElementById(quotaValueId).value;
-            initiallyRemainingWords = document.getElementById(initialWordsId).value;
-            currentlyRemainingWords = document.getElementById(currentWordsId).value;
+            var dailyQuota = document.getElementById(quotaValueId).value;
+            var initiallyRemainingWords = document.getElementById(initialWordsId).value;
+            var currentlyRemainingWords = document.getElementById(currentWordsId).value;
 
-            translatedSoFar = initiallyRemainingWords - currentlyRemainingWords;
-            remainingWords = dailyQuota - translatedSoFar;
+            var translatedSoFar = initiallyRemainingWords - currentlyRemainingWords;
+            var remainingWords = dailyQuota - translatedSoFar;
             if (remainingWords < 0) {
-                result = 'Van ' + translatedSoFar + (' palabras traducidas. La cuota era ') + dailyQuota + '. eso significa que se han traducido ' + (translatedSoFar - dailyQuota) + ' palabras de más.';
+                var result = 'Van ' + translatedSoFar + (' palabras traducidas. La cuota era ') + dailyQuota + '. eso significa que se han traducido ' + (translatedSoFar - dailyQuota) + ' palabras de más.';
             } else {
-                result= 'Se han traducido ' + translatedSoFar + ' palabras y faltan ' + remainingWords + ' para terminar.';
+                var result= 'Se han traducido ' + translatedSoFar + ' palabras y faltan ' + remainingWords + ' para terminar.';
             }
             this.displayMessage(messagePlaceholderId,result);
         }
@@ -114,9 +114,9 @@ appController = {
         if (this.isEmpty([volumeContainerId, speedContainerId, messagePlaceholderId])) {
                 this.displayError(messagePlaceholderId, this.emptyFieldMessage);
         } else {
-                volume = document.getElementById(volumeContainerId).value;
-                speed = document.getElementById(speedContainerId).value;
-                result = 'El trabajo se tardará aproximadamente unos ' + (volume/speed).toLocaleString() + ' días.';
+                var volume = document.getElementById(volumeContainerId).value;
+                var speed = document.getElementById(speedContainerId).value;
+                var result = 'El trabajo se tardará aproximadamente unos ' + (volume/speed).toLocaleString() + ' días.';
                 this.displayMessage(messagePlaceholderId, result);
         }
     }
