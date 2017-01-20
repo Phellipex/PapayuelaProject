@@ -1,3 +1,10 @@
+/*
+
+Remarks: 
+~   is a escape character in Less
+~'' is an escaped empty string
+
+*/
 header {
   padding-bottom: 1em;
 }
@@ -41,4 +48,12 @@ footer p {
 }
 .tooltip.left .tooltip-arrow {
   border-left-color: #A8A262;
+}
+.panel-shadow {
+  border: 1px solid #CB6712;
+  box-shadow: 10px 10px 5px -4px #aba8ab;
+  padding: 0.5%;
+}
+.shadow-box {
+  box-shadow: 10px 10px 5px -4px #aba8ab;
 }

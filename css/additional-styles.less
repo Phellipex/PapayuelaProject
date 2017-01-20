@@ -4,6 +4,7 @@
 @papayuela-green: #A8A262;
 @body-background: #E5E2D3;
 @button-foreground: #59B459;
+@shadow-color : rgba(171,168,171,1);
 
 header {
     .element-padding(@bottom: 1em);
@@ -53,4 +54,14 @@ footer p {
 
 .tooltip.left .tooltip-arrow {
     border-left-color: @papayuela-green;
+}
+
+.panel-shadow {
+  border: 1px solid @papayuela-orange;
+  .element-shadow(@shadow-color);
+  padding: 0.5%;
+}
+
+.shadow-box {
+  .element-shadow(@shadow-color);
 }

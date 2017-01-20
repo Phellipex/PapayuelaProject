@@ -1,3 +1,11 @@
+/*
+
+Remarks: 
+~   is a escape character in Less
+~'' is an escaped empty string
+
+*/
+
 .text-format(@alignment: ~''; @color: ~''; @size: ~''; @weight: ~'') {
 
     & when not (@alignment = ~''){
@@ -63,3 +71,6 @@ padding: @top;
     }
 }
 
+.element-shadow(@color) {
+    box-shadow: 10px 10px 5px -4px @color;
+}
