@@ -28,7 +28,7 @@ var appController = {
         } else {
             var errorNode = document.getElementById(placeholderId);
             var warningNode = document.createElement('div');
-            warningNode.setAttribute('class','alert alert-danger');
+            warningNode.setAttribute('class','alert alert-danger shadow-box');
             warningNode.setAttribute('role','alert');
                 
             var warningMessageTitle = document.createElement('strong');
@@ -50,7 +50,7 @@ var appController = {
         } else {
             var messageNode = document.getElementById(placeholderId);
             var resultNode = document.createElement('div');
-            resultNode.setAttribute('class','alert alert-success');
+            resultNode.setAttribute('class','alert alert-success shadow-box');
             resultNode.setAttribute('style', 'text-align: center;');
             resultNode.setAttribute('role','alert');
             

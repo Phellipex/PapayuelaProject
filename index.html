@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="es-CO">
 
     <head>
         <meta charset="UTF-8">
@@ -82,14 +82,14 @@
                                     <div class="input-group-addon">
                                         <label class="control-label" for="wordcount">Cantidad de palabras</label>
                                     </div>
-                                    <input id="wordcount" class="form-control" type="number" min="0" onfocus='appController.clearPlaceholder("price_message_area")' />
+                                    <input id="wordcount" class="form-control" type="number" min="0" step="any" onfocus='appController.clearPlaceholder("price_message_area")' />
                                 </div>
                                 <br/>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <label class="control-label" for="rate">Valor de cada palabra</label>
                                     </div>
-                                    <input id="rate" class="form-control" type="number" min="0" onfocus="appController.clearPlaceholder('price_message_area')" />
+                                    <input id="rate" class="form-control" type="number" min="0" step="any" onfocus="appController.clearPlaceholder('price_message_area')" />
                                 </div>
                                 <br/>
                                 <div class="btn-group" role="group" aria-label="El primer botón calcula el valor de una traducción. El segundo limpia los campos..">
@@ -135,14 +135,14 @@
                                     <div class="input-group-addon">
                                         <label class="control-label" for="quota">Cuota diaria</label>
                                     </div>
-                                    <input id="quota" class="form-control" type="number" min=0 onfocus="appController.clearPlaceholder('remaining_words_message_area')" />
+                                    <input id="quota" class="form-control" type="number" min=0 step="any" onfocus="appController.clearPlaceholder('remaining_words_message_area')" />
                                 </div>
                                 <br/>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <label class="control-label" for="remaining_at_first">Palabras restantes al inicio</label>
                                     </div>
-                                    <input id="remaining_at_first" class="form-control" type="number" min=0 onfocus="appController.clearPlaceholder('remaining_words_message_area')"
+                                    <input id="remaining_at_first" class="form-control" type="number" min=0 step="any" onfocus="appController.clearPlaceholder('remaining_words_message_area')"
                                     />
                                 </div>
                                 <br/>
@@ -150,7 +150,7 @@
                                     <div class="input-group-addon">
                                         <label class="control-label" for="translated_so_far">Palabras restantes ahora</label>
                                     </div>
-                                    <input id="translated_so_far" class="form-control" type="number" min=0 onfocus="appController.clearPlaceholder('remaining_words_message_area')"
+                                    <input id="translated_so_far" class="form-control" type="number" min=0 step="any" onfocus="appController.clearPlaceholder('remaining_words_message_area')"
                                     />
                                 </div>
                                 <br/>
@@ -173,14 +173,14 @@
                                     <div class="input-group-addon">
                                         <label class="control-label" for="volume">Volumen del encargo</label>
                                     </div>
-                                    <input id="volume" class="form-control" type="number" min="0" onfocus="appController.clearPlaceholder('estimation_message_area')" />
+                                    <input id="volume" class="form-control" type="number" min="0" step="any" onfocus="appController.clearPlaceholder('estimation_message_area')" />
                                 </div>
                                 <br/>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <label class="control-label" for="speed">Velocidad (palabras/día)</label>
                                     </div>
-                                    <input id="speed" class="form-control" type=number min="0" onfocus="appController.clearPlaceholder('estimation_message_area')" />
+                                    <input id="speed" class="form-control" type=number min="0" step="any" onfocus="appController.clearPlaceholder('estimation_message_area')" />
                                 </div>
                                 <br/>
                                 <div class="btn-group" role="group" aria-label="El primer botón estima los días que se tardará en traducir un texto dada una velocidad en palabras por día. El segundo limpia los campos.">
@@ -212,6 +212,13 @@
             $(document).ready(function(){
                     $('[data-toggle="tooltip"]').tooltip();
                 });
+
+            $('input').on('keypress', function(event){
+                if ($.inArray(event.which, [0, 8, 44, 46, 49, 50, 51, 52, 53, 54, 55, 56, 57, ])  === -1) {                    
+                    event.preventDefault();
+                }
+            }); 
+
         </script>
     </body>
 </html>
