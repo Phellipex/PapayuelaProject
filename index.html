@@ -214,7 +214,8 @@
                 });
 
             $('input').on('keypress', function(event){
-                if ($.inArray(event.which, [0, 8, 44, 46, 49, 50, 51, 52, 53, 54, 55, 56, 57, ])  === -1) {                    
+console.log(event.which);
+                if ($.inArray(event.which, [0, 8, 44, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, ])  === -1) {                    
                     event.preventDefault();
                 }
             }); 
